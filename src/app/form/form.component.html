@@ -1,0 +1,89 @@
+<div class="container-register-form">
+	<div class="form">
+		<div class="note">
+			<h1>ReGiStRaTiOn FoRm</h1>
+		</div>
+		<div class="form-content">
+			<div class="form-group">
+			<div class="row">
+				<div class="col-md-6">
+					
+						<input type="text" class="form-control" name="name" placeholder="Your Name" [(ngModel)] = "name" value="">
+						<br>
+						
+						<input type="radio" name="gender" [(ngModel)] = "gender" value="Male">Male<br>
+						<input type="radio" name="gender" [(ngModel)] = "gender" value="Female">Female<br>
+						<input type="text" class="form-control" name="phone" placeholder="Phone Number" [(ngModel)] = "phone" value="">
+					</div>
+			
+				<div class="col-md-6">
+						<input type="text" class="form-control" name="pass1" placeholder="Password" [(ngModel)] = "pass1" value="">
+						<br>
+					
+						<input type="text" class="form-control" name="pass" placeholder="Enter email" [(ngModel)] = "email" value="">
+						<br>
+
+						
+					
+					<!-- <button (click)="myFunc(fname,lname,gender,phone,pass1,pass)" type="Button" class="btnSumbit">Submit</button>-->
+                     
+                    <!-- <button (click)="getdetails(fname,laname,gender,phone,pass1,pass") type="Button" class="btnSumbit">Submit</button> 
+ --> 
+					<input type="button" style="cursor:pointer" value="Click Here" (click) ="postdetails(name,gender,phone,email)">
+					
+                 
+				</div>
+			</div>
+		</div>
+			
+        </div>
+    
+</div>
+<div *ngIf="local">
+	<table style="border:1px solid">
+		<tr style="border:1px solid">
+			<th style="border:1px solid">Name</th>
+			<th style="border:1px solid">Gender</th>
+			<th style="border:1px solid">Phone Number</th>
+			<th style="border:1px solid">Email</th>
+			<th style="border:1px solid">Td</th>
+			
+
+		</tr>
+             <!-- data display on screen when we we fill the data 
+ 	--><!-- 	<tr *ngFor="let customer of newArray" style="border:1px solid">
+			<td>{{customer.name}}</td>
+		
+			<td>{{customer.gender}}</td>
+			<td>{{customer.phone}}</td>
+			<td>{{customer.email}}</td>
+			
+		</tr> -->
+			<tr *ngFor="let customer of local.data;let i=index;" style="border:1px solid">
+			<td *ngIf="val||(!val&&index1!=i)">{{customer.name}}</td>
+			<td *ngIf="!val&&index1==i"><input type="text" [(ngModel)]="name" placeholder="Enter name"></td>
+
+			<td *ngIf="val||(!val&&index1!=i)">{{customer.gender}}</td>
+			<td *ngIf="!val&&index1==i"><input type="text" [(ngModel)]="gender" placeholder="Enter Gender"></td>
+
+			<td *ngIf="val||(!val&&index1!=i)">{{customer.phone}}</td>
+			<td *ngIf="!val&&index1==i"><input type="text" [(ngModel)]="phone" placeholder="Enter Phone"></td>
+
+			<td *ngIf="val||(!val&&index1!=i)">{{customer.email}}</td>
+			<td *ngIf="!val&&index1==i"><input type="text" [(ngModel)]="email" placeholder="Enter Email"></td>
+
+			<button *ngIf="val||(!val&&index1!=i) " (click)="updateName(customer.name,customer.gender,customer.phone,customer.email,i)">Edit</button>
+
+			  <button *ngIf="!val&&index1==i" (click)="updat(name,gender,phone,email,customer._id)">updates</button> 
+            <button *ngIf="val||(!val&&index1!=i)" (click)="delete(customer._id)">Delete</button>
+			<!-- <button (click)="Name(customer.name,customer.gender,customer.phone,customer.email)">Delete</button> -->
+			 
+
+			
+		</tr>
+	</table>
+
+</div>
+
+
+	
