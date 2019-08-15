@@ -10,25 +10,25 @@ export class ApiservicsService {
   postdetails(name,gender,phone,email){
   var obj ={"name":name,"gender":gender,"phone":phone,"email":email};
   console.log(obj);
-  return this._http.post('http://localhost:8080/api/user',obj,{})
+  return this._http.post('http://localhost:8089/api/user',obj,{})
   }
 
   //UPDATE API//
   updateName(name,gender,phone,email,_id){
   var obj = {"name":name,"gender":gender,"phone":phone,"email":email,"_id":_id};
   console.log(obj);
-   return this._http.post('http://localhost:8080/api/userupdate',obj,{})
+   return this._http.post('http://localhost:8089/api/userupdate',obj,{})
   }
   
 
  /*get Api*/
  hello(){
   
-  return this._http.get('http://localhost:8080/api/user')
+  return this._http.get('http://localhost:8089/api/user')
   }
  
   delete(id){
   
-  return this._http.delete('http://localhost:8080/api/user/'+id)
+  return this._http.delete('http://localhost:8089/api/user/'+id)
   }
 }
